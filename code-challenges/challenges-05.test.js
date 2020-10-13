@@ -39,10 +39,11 @@ let $ = createSnippetWithJQuery(`
 const templateWithJQuery = () => {
   // Solution code here...
   starWarsPeople.forEach(person => {
-    let copy = $('#template').clone();
-    $(copy).find('h2').html(`${person.name}`);
-    $(copy).find('h3').html(`${person.height}`);
-    $(copy).find('p').html(`${person.eye_color}`);
+    let html = $('#template').html();
+    let copy = $(`<section>${html}</section>`);
+    copy.find('h2').html(`${person.name}`);
+    copy.find('h3').html(`${person.height}`);
+    copy.find('p').html(`${person.eye_color}`);
 
     // console.log($(copy).find('p').html());
     $('main').append(copy);
@@ -67,7 +68,7 @@ const howMuchPencil = (str) => {
   // Solution code here...
 
   for (let i = 0; i < str.length; i++) {
-    result.push(str.slice(i, 90));
+    result.push(str.slice(i, str.length));
 
   }
   result.push('');
@@ -140,11 +141,11 @@ const listFoods = (recipe) => {
     } else if (item.includes('gallons')) {
       tmp = item.slice(item.indexOf('gallons') + 8, item.length);
       result.push(tmp);
-    } else if ( item.includes('pound')){
-      tmp = item.slice(item.indexOf('pound') + 6,item.length);
+    } else if (item.includes('pound')) {
+      tmp = item.slice(item.indexOf('pound') + 6, item.length);
       result.push(tmp);
-    } else if (item.includes('cups')){
-      tmp = item.slice(item.indexOf('cups') + 5,item.length);
+    } else if (item.includes('cups')) {
+      tmp = item.slice(item.indexOf('cups') + 5, item.length);
       result.push(tmp);
     }
   });
@@ -162,7 +163,26 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-return result;
+  let tmp = '';
+  recipe.ingredients.forEach(item => {
+    if (item.includes('sized')) {
+      tmp = item.slice(item.indexOf('sized') + 6, item.length);
+      result.push(tmp);
+    } else if (item.includes('pounds')) {
+      tmp = item.slice(item.indexOf('pounds') + 7, item.length);
+      result.push(tmp);
+    } else if (item.includes('gallons')) {
+      tmp = item.slice(item.indexOf('gallons') + 8, item.length);
+      result.push(tmp);
+    } else if (item.includes('pound')) {
+      tmp = item.slice(item.indexOf('pound') + 6, item.length);
+      result.push(tmp);
+    } else if (item.includes('cups')) {
+      tmp = item.slice(item.indexOf('cups') + 5, item.length);
+      result.push(tmp);
+    }
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -302,7 +322,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
