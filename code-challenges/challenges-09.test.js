@@ -259,7 +259,7 @@ const returnNames = (arr) => {
     return newArray ;
   }, []);
 };
-/* ------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
 Write a function named reversedString that takes in a string and returns a string with the letters in reverse order.
