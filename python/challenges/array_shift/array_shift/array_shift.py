@@ -2,24 +2,24 @@
 test = [3,4,5,6,7]
 insert = 67
 
-def array_length(test):
+
+
+def array_length(arr):
     return len(test)
 
-def modpoint( length = array_length(test)):
-    mid = (length % 2)
-    return mid
-    # if ( mid = 0)
-    # return mid
 
-def midpoint( length = array_length(test),  mod = modpoint(test)):
-    if (mod == 1):
-        (length - 1)/2
+def modpoint(arr_length):
+    mid = (arr_length % 2)
+    return mid
+
+def midpoint( arr_length, mod_point):
+    if (mod_point == 1):
+       mid_point = (arr_length - 1)/2
     else:
-        mid = length/2
-    
-    return mid
+        mid_point = arr_length/2
+    return int(mid_point)
 
-def insert_number(arr,index = midpoint(lenght = array_length, mod = modpoint(test)), insert):
-    arr.insert(index,insert)
+def insert_number(arr,index,insert_num):
+    arr.insert(index,insert_num)
     return arr
-    
+
