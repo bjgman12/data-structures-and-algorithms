@@ -16,16 +16,16 @@ def test_array_length():
     assert actual == expected
 
 def test_modpoint():
-    actual = modpoint(test)
+    actual = modpoint(array_length(test))
     expected = 1
     assert actual == expected
 
 def test_midpoint():
-    actual = midpoint(array_length(test),modpoint(test))
+    actual = midpoint(array_length(test),modpoint(array_length(test)))
     expected = 2
     assert actual == expected
 
 def test_insertion():
-    actual = insert_number(test, midpoint(array_length(test),modpoint(test)), insert)
+    actual = insert_number(test, midpoint(array_length(test),modpoint(array_length(test))), insert)
     expected = [3,4,67,5,6,7]
     assert actual == expected
