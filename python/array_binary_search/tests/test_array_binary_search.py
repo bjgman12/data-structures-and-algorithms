@@ -7,6 +7,13 @@ test_term = 15
 not_arr = [11,22,33,44,55,66,77]
 not_term = 90
 
+empty = []
+
+latter_arr = [1,2,3,4,5,6,7]
+term = 5
+
+saved_arr = []
+
 def test_version():
     assert __version__ == '0.1.0'
 
@@ -18,4 +25,19 @@ def test_array_search():
 def test_not_found():
     actual = array_search(not_arr,not_term)
     expected = -1
+    assert actual == expected
+
+def test_empty():
+    actual = array_search(empty,not_term)
+    expected = -1
+    assert actual == expected
+
+def test_latter_half():
+    actual = array_search(latter_arr,term)
+    expected = 4
+    assert actual == expected
+
+def test_latter_half_6():
+    actual = array_search(latter_arr,6)
+    expected = 5
     assert actual == expected
