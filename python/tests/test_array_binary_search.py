@@ -1,5 +1,5 @@
-from array_binary_search import __version__
-from array_binary_search.array_binary_search import array_search
+
+from code_challenges.array_binary_search.array_binary_search import array_search
 
 test_arr = [4,8,15,16,23,42]
 test_term = 15
@@ -14,8 +14,7 @@ term = 5
 
 saved_arr = []
 
-def test_version():
-    assert __version__ == '0.1.0'
+
 
 def test_array_search():
     actual = array_search(test_arr,test_term)
