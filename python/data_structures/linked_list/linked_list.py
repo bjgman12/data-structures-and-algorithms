@@ -83,7 +83,37 @@ class LinkedList:
             current = current.next
 
             
-    
+    def kth_from_end(self,k):
+        # {4}, {3}, {2}, {1}
+
+        # if k = 1 -> 2 
+
+        # current = self.head
+        # newlist = []
+
+        # while current:
+        #     newlist.append(current.value)
+        #     current = current.next
+        # if len(newList) > k:
+        #     print ("Idk out of bounds")
+        # else:
+        #     return newList[-k-1]
+
+        pace_behind = 0
+        follower = None
+        leader = self.head
+        while leader:
+            leader = leader.next
+            if follower:
+                follower = follower.next
+            elif pace_behind == k:
+                follower = self.head
+            pace_behind += 1
+        if not follower:
+          raise ValueError('k is out of range')
+        return follower.value
+
+
 
     def __str__(self):
         curr = self.head
@@ -107,4 +137,5 @@ if __name__ == "__main__":
     linked.insertAfter(2,4)
     linked.insertBefore(2,5)
 
+    print(linked.kth_from_end(1))
     print(linked)
