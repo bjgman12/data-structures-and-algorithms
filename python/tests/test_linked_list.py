@@ -1,6 +1,6 @@
 
 from data_structures.linked_list.linked_list import LinkedList, Node
-import pytest
+
 
 def test_import():
     assert LinkedList
@@ -40,9 +40,38 @@ def test_search():
     assert actual == expected
 
 def test_str():
-    linked.insert(7)
-    linked.insert(8)
-    linked.insert(9)
+    node = Node(9)
+    linked_test = LinkedList(node)
+    linked_test.insert(8)
+    linked_test.insert(7)
+    linked_test.insert(6)
 
-    actual = str(linked)
-    expected = '{6} -> {7} -> {8} -> {9} -> Nullp'
+    actual = str(linked_test)
+    expected = '{6} -> {7} -> {8} -> {9} -> Null'
+
+    assert actual == expected
+
+def test_insertBefore():
+    node = Node(6)
+    linked1 = LinkedList(node)
+    linked1.insert(5)
+    linked1.insert(4)
+    linked1.insertBefore(5,9)
+
+    actual = str(linked1)
+    expected = '{4} -> {9} -> {5} -> {6} -> Null'
+
+    assert actual == expected
+
+
+def test_insertAfter():
+    node = Node(6)
+    linked2 = LinkedList(node)
+    linked2.insert(5)
+    linked2.insert(4)
+    linked2.insertAfter(5,9)
+
+    actual = str(linked2)
+    expected = '{4} -> {5} -> {9} -> {6} -> Null'
+
+    assert actual == expected
