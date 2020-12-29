@@ -11,7 +11,9 @@ class Node:
 
 class LinkedList:
     """
-    Put docstring here
+    This class instatiates 
+    linked lsit and contains
+    linked list methods
     """
     def __init__(self,head = None, values = None):
         self.head = head
@@ -50,21 +52,36 @@ class LinkedList:
         else:
             self.head = Node(value)
 
-    def insertAfter(self,chosen,value):
-        
+    def insertBefore(self,value,new_val):
+        new_node = Node(new_val)
         current = self.head
-      
-        if current.next is chosen:
-            self.insert(value)
-            return 
-        
-        while current is not None:
-            if current.next is chosen:
-                new_node = Node(value)
+        if current is None:
+            self.insert(new_node)
+            return
+        while current.next is not None:
+            if current.next.value == value:
                 new_node.next = current.next
-                current.next = node
-                return 
+                current.next = new_node
             current = current.next
+            return
+
+    def insertAfter(self,value,new_val):
+        current = self.head
+        new_node = Node(new_val)
+
+        if current is None:
+            self.insert(new_node)
+            return
+        
+
+        while current is not None:
+            if current.value == value:
+                new_node.next = current.next
+                current.next = new_node
+                return
+
+            current = current.next
+
             
     
 
@@ -73,20 +90,21 @@ class LinkedList:
         display = ''
 
         while curr is not None:
-            display += f' { {curr.value} } ->'
+            display += f'{ {curr.value} } -> '
 
             curr = curr.next
         
-        display += ' Null '
+        display += 'Null'
         return display
 
 
 if __name__ == "__main__":
-    node = Node(12)
-    linked = LinkedList(node)
-    linked.insert(14)
-    linked.insert(15)
-    linked.insert(11)
-    linked.append(20)
-    linked.insertAfter(15,16)
+    linked = LinkedList()
+    linked.insert(1)
+    linked.insert(2)
+    linked.insert(3)
+
+    linked.insertAfter(2,4)
+    linked.insertBefore(2,5)
+
     print(linked)
