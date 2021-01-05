@@ -12,3 +12,9 @@
 > handles insertions for both before and after selected nodes
 
 [ReadME](data_structures/linked_list/README.md)
+
+
+### ll-zip
+> combines two linked lists with alternate values
+
+[ReadMe](code_challenges/ll-zip/README.md)
