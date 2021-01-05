@@ -127,38 +127,65 @@ class LinkedList:
         display += 'Null'
         return display
 
+    def __repr__(self):
+        curr = self.head
+        display = ''
+
+        while curr is not None:
+            display += f'{ {curr.value} } -> '
+
+            curr = curr.next
+        
+        display += 'Null'
+        return display
+
     @staticmethod
     def ll_zip(ll1,ll2):
+        """[summary]
+
+        Args:
+            ll1 ([linked_list]): [description]
+            ll2 ([linked_list]): [description]
+
+        Returns:
+            [linked_list]: [resulting list is the two combined with 
+            alternating values]
+        """
+        
         current1 = ll1.head
         current2 = ll2.head
 
-        while current1.next is not None and current2.next is not None:
+        while current1 and current2:
             temp1 = current1.next
             temp2 = current2.next
 
             current1.next = current2
             current2.next = temp1
 
-            ll1.current = temp1
-            ll2.current = temp2
-    
-        return ll1.head
+            if current1.next is None:
+                current1.next.next = temp2
+            
+            current1 = temp1
+            current2 = temp2
+        
+        return ll1
 
+    
 
 if __name__ == "__main__":
     linked = LinkedList()
-    linked.insert(1)
-    linked.insert(3)
     linked.insert(5)
+    linked.insert(3)
+    linked.insert(1)
 
     linked2 = LinkedList()
-    linked2.insert(2)
-    linked2.insert(4)
     linked2.insert(6)
+    linked2.insert(4)
+    linked2.insert(2)
 
-    linked.ll_zip(linked,linked2)
+    
 
-    print(linked)
+    print(linked.ll_zip(linked,linked2))
 
 
   
