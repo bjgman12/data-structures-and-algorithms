@@ -28,3 +28,8 @@
 > uses logic to use q methods on stacks
 
 [README](code_challenges/queue_with_stacks/README.md)
+
+## Animal Shelter
+> creates a simulted animal shelter based on queue logic
+
+[README](code_challenges/fifo_animal_shelter/README.md)
