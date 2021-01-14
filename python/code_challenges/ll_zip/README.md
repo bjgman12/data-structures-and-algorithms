@@ -10,8 +10,10 @@ White boarded with Karlo
 
 ### Link
 
-[Pull Request](https://github.com/bjgman12/data-structures-and-algorithms/pull/29)
+[Pull Request](https://github.com/bjgman12/data-structures-and-algorithms/pull/30)
 
+## WhiteBoard
 
+![whiteboard](wb.jpg)
 
 
