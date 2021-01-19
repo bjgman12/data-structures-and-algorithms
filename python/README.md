@@ -33,3 +33,7 @@
 > creates a simulted animal shelter based on queue logic
 
 [README](code_challenges/fifo_animal_shelter/README.md)
+
+## Backet Validation 
+ > checks a string for balance brackets
+ [README](code_challenges/multi_bracket_validation/README.md)
