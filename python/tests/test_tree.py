@@ -69,3 +69,16 @@ def test_pre_order_collection():
     actual = tree.collect
     expected = [23,8,5,9,10,42]
     assert actual == expected
+
+def test_max_value():
+    node = Node(23)
+    tree = BinaryTree(node)
+    BinarySearchTree.add(tree,8)
+    BinarySearchTree.add(tree,42)
+    BinarySearchTree.add(tree,9)
+    BinarySearchTree.add(tree,10)
+    BinarySearchTree.add(tree,5)
+
+    actual = tree.max_value()
+    expected = 42
+    assert actual == expected

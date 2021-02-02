@@ -8,6 +8,7 @@ class BinaryTree:
   def __init__(self,node = None):
     self.root = node
     self.collect = []
+    self.max = 0
         
   def pre_order(self):
     def traverse(root):
@@ -44,6 +45,17 @@ class BinaryTree:
     
       self.collect.append(root.value)
     traverse(self.root)
+
+  def max_value(self):
+    def traverse(root):
+      if root.value > self.max:
+        self.max = root.value
+      if root.left:
+        traverse(root.left)
+      if root.right:
+        traverse(root.right)
+    traverse(self.root)
+    return self.max
 
 class BinarySearchTree(BinaryTree):
   # def __init__(self, root = None):
