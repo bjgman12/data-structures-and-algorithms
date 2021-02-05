@@ -17,3 +17,11 @@
 
  ![whiteboard](wb.jpg)
   [PR](https://github.com/bjgman12/data-structures-and-algorithms/pull/36)
+
+## Breadth first 
+
+## challenge
+    write a function that takes in a binary tree and returns a list in breadth first order
+
+    ![whiteboard](wb2.jpg)
+    [PR](https://github.com/bjgman12/data-structures-and-algorithms/pull/37)
