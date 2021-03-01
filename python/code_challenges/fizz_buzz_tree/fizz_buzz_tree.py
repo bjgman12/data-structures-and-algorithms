@@ -70,24 +70,30 @@ class KaryTree():
     
     
 def fbt(kary):
+    newTree = KaryTree()
     temp_q = Queue()
     temp_q.enqueue(kary.root)
     current = temp_q.dequeue()
+    count = 0
     while current:
         if current.children:
             for item in current.children:
                 temp_q.enqueue(item)
         if  not (current.value % 15):
-                current.value = 'FizzBuzz'
+             newNode = KaryNode('FizzBuzz') 
         elif not (current.value % 5):
-            current.value = 'Buzz'
+             newNode = KaryNode('Buzz') 
         elif not (current.value % 3):
-            current.value = 'Fizz'
+             newNode = KaryNode('Fizz') 
         else:
-            current.value = f'{current.value}'
+             newNode = KaryNode(f'{current.value}')
+        if count < 1:
+            newTree.root = newNode
+        
         if temp_q.is_empty():
             current = None
         else:current = temp_q.dequeue()
+        count += 1
     return kary.breadth_first()
 
 
