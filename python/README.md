@@ -41,3 +41,7 @@
 ## Trees
 > Binary tree implementation
 [README](data_structures/tree/README.md)
+
+## Hashtables
+> hashtable implementation
+[README](data_structures/tree/README.md)
