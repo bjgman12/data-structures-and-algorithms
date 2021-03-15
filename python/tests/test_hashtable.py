@@ -67,3 +67,22 @@ def test_hashtable_lookup_collision():
 
 
     assert actual == expected
+
+def test_hashtable_contains_true():
+    hashtable = Hashtable()
+    hashtable.set('listen',1)
+
+    actual = hashtable.contains('listen')
+    expected = True
+
+    assert actual == expected
+
+def test_hashtable_contains_true():
+    hashtable = Hashtable()
+    hashtable.set('listen',1)
+
+    actual = hashtable.contains('listener')
+    expected = False
+
+    assert actual == expected
+        
