@@ -45,3 +45,7 @@
 ## Hashtables
 > hashtable implementation
 [README](data_structures/tree/README.md)
+
+## Repeated Words
+> a small excersice in using hash tables
+[README](code_challenge/repeated_word/README.md)

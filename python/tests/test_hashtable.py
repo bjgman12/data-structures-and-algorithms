@@ -1,4 +1,3 @@
-
 from hashtable import Hashtable
 
 def test_create():
