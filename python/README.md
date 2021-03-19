@@ -49,3 +49,7 @@
 ## Repeated Words
 > a small excersice in using hash tables
 [README](code_challenge/repeated_word/README.md)
+
+## Tree intersection
+> returns intersection of two binarytrees
+[README](code_challenges/tree_intersection/README.md)
