@@ -3,9 +3,12 @@ class Graph:
 
     def __init__(self):
         self._adjacency_list = {}
+        self.root = None
 
     def add_node(self,value):
         v = Vertex(value)
+        if not self._adjacency_list:
+            self.root = v
         self._adjacency_list[v] = []
         return v
 
@@ -55,3 +58,21 @@ class Edge:
         self.weight = weight
     def __repr__(self):
         return f'{self.weight},{self.vertex}'
+
+def DF(graph,root):
+    visited = []
+    ret_col = []
+
+    def DF_Tool(graph,vertex):
+        nonlocal visited
+        nonlocal ret_col
+        visited.append(vertex)
+        ret_col.append(vertex)
+
+        for link in graph.get_neighbors(vertex):
+            if link not in visited:
+                DF_Tool(graph,link)
+     
+    DF_Tool(graph,root)
+
+    return ret_col
