@@ -1,4 +1,4 @@
-from data_structures.graph.graph import Graph,Vertex,Edge
+from data_structures.graph.graph import Graph,Vertex,Edge, DF
 import pytest
 
 def test_create_vertex_pass():
@@ -74,3 +74,29 @@ def test_repr():
     actual = g
     expected = 'a : [],b : [] '
     assert str(actual) == expected
+
+def test_expected_output():
+    g = Graph()
+    a = g.add_node('a')
+    b = g.add_node('b')
+    c = g.add_node('c')
+    d = g.add_node('d')
+    e = g.add_node('e')
+    f = g.add_node('f')
+    nodeg = g.add_node('g')
+    h = g.add_node('g')
+
+    g.add_edge(a,b)
+    g.add_edge(a,d)
+    g.add_edge(b,d)
+    g.add_edge(b,c)
+    g.add_edge(c,nodeg)
+    
+    g.add_edge(d,e)
+    g.add_edge(d,h)
+    g.add_edge(d,f)
+
+    actual = DF(g,g.root)
+    expected = ['a','b','c','g','d','e','h','f']
+    assert actual == expected
+    

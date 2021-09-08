@@ -90,17 +90,26 @@ class BinaryTree:
     traverse(self.root)
 
   def max_value(self):
-    def traverse(root):
-      if root.value > self.max:
-        self.max = root.value
-      if root.left:
-        traverse(root.left)
-      if root.right:
-        traverse(root.right)
-    traverse(self.root)
-    return self.max
+    def maxxie(root,largest = root.value):
+          
+      if not node:
+            return largest
 
-  def breadth_first(self):
+      if node.left:
+        traverse(node.left,largest)
+
+      if node.right:
+        traverse(node.right,largest)
+
+      if node.value > largest:
+            largest = node.value
+
+
+    traverse(self.node)
+    return largest
+
+  def breadth_first(self):if root.value > largest:
+        largest = root.value
         ret_val = []
         breadth_q = Queue()
         breadth_q.enqueue(self.root)
@@ -152,72 +161,30 @@ class BinarySearchTree(BinaryTree):
           root = root.right
       return False
 
-    
+
+def weight_check(tree,value):
+      
+  def pre_check(root,check,agaisnt):
+      if root:
+          check += tree.root.value
+          if check == agaisnt:
+                return True
+      if root.left:
+
+        pre_check(root.left,check,value)  
+      if root.right:
+        pre_check(root.right,check,value)
+
+  if pre_check(tree.root,0,value) == True:
+        return True
+  else:
+        return False
 
 
 
 if __name__ == "__main__":
-  # set a as root
-  # set left of a to b
-  # set right of a to c
+      tree = BinaryTree(BinaryNode(1,BinaryNode(2,BinaryNode(4),BinaryNode(5)),BinaryNode(2,None,BinaryNode(6))))
 
-  # tree = BinaryTree()
-
-  #  a = BinaryNode(4)
-  #  b = BinaryNode(8)
-  #  c = BinaryNode(15)
-  #  d = BinaryNode(16)
-  #  e = BinaryNode(22)
-  #  f = BinaryNode(23)
-  #  g = BinaryNode(27)
-  #  h = BinaryNode(42)
-  #  i = BinaryNode(85)
-  #  j = BinaryNode(105)
-
-  #  tree.root = a
-  #  tree.root.left = b
-  #  tree.root.right = c
-
-
-  #  tree = BinaryTree(f)
-
-  #  tree.root.left = b
-  #  tree.root.right = h
-
-  #  b.left = a
-  #  b.right = d
-
-  #  d.left = c
-  #  d.right = e
-
-  #  h.left = g
-  #  h.right = i
-
-  #  i.right = j
-
-  #  tree.in_order()
-  #  tree.post_order()
-  #  tree.pre_order()
-  #  BinarySearchTree.add(tree,5)
-  #  BinarySearchTree.add(tree,100)
-  #  tree.in_order()
-  #  print(BinarySearchTree.contains(tree.root,5))
-
-
-   a = BinaryNode(1)
-   b = BinaryNode(3)
-   c = BinaryNode(4)
-   d = BinaryNode(2)
-   e = BinaryNode(7)
-
-   tree = BinaryTree(a)
-   
-   tree.root.left = b
-   tree.root.right = c
-
-   c.left = d
-   c.right = e
-
-   print(tree.breadth_first())
-
-
+      print(tree)
+      print(weight_check(tree,1))
+      
