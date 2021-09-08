@@ -61,6 +61,7 @@ class KaryTree():
             if current.children:
                 for item in current.children:
                     temp_q.enqueue(item)
+            # operation
             ret_val.append(current.value)
             if temp_q.is_empty():
                 current = None

@@ -90,17 +90,26 @@ class BinaryTree:
     traverse(self.root)
 
   def max_value(self):
-    def traverse(root):
-      if root.value > self.max:
-        self.max = root.value
-      if root.left:
-        traverse(root.left)
-      if root.right:
-        traverse(root.right)
-    traverse(self.root)
-    return self.max
+    def maxxie(root,largest = root.value):
+          
+      if not node:
+            return largest
 
-  def breadth_first(self):
+      if node.left:
+        traverse(node.left,largest)
+
+      if node.right:
+        traverse(node.right,largest)
+
+      if node.value > largest:
+            largest = node.value
+
+
+    traverse(self.node)
+    return largest
+
+  def breadth_first(self):if root.value > largest:
+        largest = root.value
         ret_val = []
         breadth_q = Queue()
         breadth_q.enqueue(self.root)
