@@ -1,3 +1,8 @@
+from .. import d
+
+
+
+
 
 class Graph:
 
@@ -76,3 +81,7 @@ def DF(graph,root):
     DF_Tool(graph,root)
 
     return ret_col
+
+if __name__ == '__main__':
+    print('Life')
+    test = Queue()
